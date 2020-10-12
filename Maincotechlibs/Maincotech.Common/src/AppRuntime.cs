@@ -53,6 +53,17 @@ namespace Maincotech
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
+            //Init Startups
+            var startups = TypeFinder.ClassesOfType<IStartup>();
+            var instances = startups
+             .Select(x => (IStartup)Activator.CreateInstance(x))
+             .OrderBy(x => x.Order);
+
+            foreach (var item in instances)
+            {
+                item.ConfigureServices(services, configuration);
+            }
+
             //Init service provider
             InitServiceProvider(services);
         }
