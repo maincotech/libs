@@ -10,13 +10,14 @@
     <PackageProjectUrl>https://github.com/maincotech/libs</PackageProjectUrl>
     <Version>1.0.1</Version>
     <RootNamespace>Maincotech</RootNamespace>
-    <PackageVersion>1.0.3</PackageVersion>
+    <PackageVersion>1.0.4</PackageVersion>
     <Copyright>Maincotech</Copyright>
     <Owners>Minghao Li</Owners>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\Users\liminghao\Desktop\libs\Maincotechlibs\Maincotech.Common\bin\</OutputPath>
+    <DebugType></DebugType>
+    <OutputPath>bin\Release</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
