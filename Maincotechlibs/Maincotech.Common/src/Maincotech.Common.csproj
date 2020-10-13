@@ -10,7 +10,7 @@
     <PackageProjectUrl>https://github.com/maincotech/libs</PackageProjectUrl>
     <Version>1.0.1</Version>
     <RootNamespace>Maincotech</RootNamespace>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <Copyright>Maincotech</Copyright>
     <Owners>Minghao Li</Owners>
   </PropertyGroup>
