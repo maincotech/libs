@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using Maincotech.Utilities;
 
 namespace Maincotech
 {
@@ -22,7 +23,15 @@ namespace Maincotech
 
         static AppRuntimeContext()
         {
-            _executingPath = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase)).LocalPath;
+            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+            if (OSUtil.IsMacOS())
+            {
+                _executingPath = path.Replace("file:",string.Empty);
+            }
+            else
+            {
+                _executingPath = new Uri(path).LocalPath;
+            }
         }
 
         #region Methods
