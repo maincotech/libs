@@ -8,15 +8,19 @@
     <Description>DDD implmentation</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/maincotech/libs</PackageProjectUrl>
+    <PackageVersion>1.0.4</PackageVersion>
+    <Copyright>Maincotech</Copyright>
+    <Owners>Minghao Li</Owners>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\Users\liminghao\Desktop\libs\Maincotechlibs\Maincotech.Core\bin\</OutputPath>
+    <DebugType></DebugType>
+    <OutputPath>bin\Release</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Maincotech.Common" Version="1.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Maincotech.Common" Version="1.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
   </ItemGroup>
 
 </Project>

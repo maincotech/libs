@@ -6,7 +6,7 @@ namespace Maincotech.Domain.Specifications
 {
     public static class DomainObjectSpecifications
     {
-        public static ISpecification<TDomainObject> Id<TDomainObject>(Guid id) where TDomainObject : DomainObject
+        public static ISpecification<TDomainObject> Id<TDomainObject>(Guid id) where TDomainObject : IEntity
         {
             return Specification<TDomainObject>.Eval(entity => entity.Id == id);
         }
@@ -16,7 +16,7 @@ namespace Maincotech.Domain.Specifications
             return Specification<TDomainObject>.Eval(entity => entity.LastModifiedTime > lastModifiedTime);
         }
 
-        public static ISpecification<TDomainObject> IdIn<TDomainObject>(List<Guid> ids) where TDomainObject : DomainObject
+        public static ISpecification<TDomainObject> IdIn<TDomainObject>(List<Guid> ids) where TDomainObject : IEntity
         {
             var firstId = ids[0];
             ISpecification<TDomainObject> specification =
