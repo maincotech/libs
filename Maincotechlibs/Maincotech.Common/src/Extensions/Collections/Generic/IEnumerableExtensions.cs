@@ -1,4 +1,6 @@
-﻿namespace System.Collections.Generic
+﻿using System.Linq;
+
+namespace System.Collections.Generic
 {
     public static class GenericEnumerableExtensions
     {
@@ -49,5 +51,6 @@
             return new HashSet<TSource>(source, comparer);
         }
 
+ 
     }
 }
