@@ -100,9 +100,9 @@ namespace Maincotech.Data
             if (group == null) return " 1=1 ";
             var appended = false;
             bulider.Append(GroupLeftToken);
-            if (group.Rules != null)
+            if (group.Count > 0)
             {
-                foreach (var rule in group.Rules)
+                foreach (var rule in group)
                 {
                     if (appended)
                     {

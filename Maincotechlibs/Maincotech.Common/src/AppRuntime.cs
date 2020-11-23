@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Security.Principal;
+using System.Threading;
 
 namespace Maincotech
 {
@@ -22,6 +24,10 @@ namespace Maincotech
         public ITypeAdapterFactory TypeAdapterFactory { get; protected set; }
 
         public ITypeFinder TypeFinder { get; protected set; }
+
+        public IPrincipal Principal { get { return _PrincipalProvider(); } }
+
+        protected Func<IPrincipal> _PrincipalProvider;
 
         public AppRuntime()
         {
@@ -47,8 +53,15 @@ namespace Maincotech
             //Run Startup Tasks
             RunStartupTasks();
 
+            //Init Principal
+            InitPrincipalProvider();
             //resolve assemblies here. otherwise, plugins can throw an exception when rendering views
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+        }
+
+        protected virtual void InitPrincipalProvider()
+        {
+            _PrincipalProvider = () => Thread.CurrentPrincipal;
         }
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)

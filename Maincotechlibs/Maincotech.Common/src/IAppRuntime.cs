@@ -4,6 +4,7 @@ using Maincotech.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Security.Principal;
 
 namespace Maincotech
 {
@@ -13,6 +14,7 @@ namespace Maincotech
         ILoggerFactory LoggerFactory { get; }
         ITypeAdapterFactory TypeAdapterFactory { get; }
         ITypeFinder TypeFinder { get; }
+        IPrincipal Principal { get; }
 
         void ConfigureServices(IServiceCollection services, IConfiguration configuration);
     }

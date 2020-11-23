@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace MaincoTech.Reflection.Fast
+namespace Maincotech.Reflection.Fast
 {
     public class MethodInvokerFactory : IFastReflectionFactory<MethodInfo, IMethodInvoker>
     {

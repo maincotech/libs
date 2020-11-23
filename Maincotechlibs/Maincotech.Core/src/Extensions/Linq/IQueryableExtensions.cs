@@ -69,12 +69,16 @@
 
         public static IQueryable Filter(this IQueryable source, FilterCondition condition)
         {
-            var lambda = condition.ToExpression(source.ElementType);
-            return source.Provider.CreateQuery(
-               Expression.Call(
-                   typeof(Queryable), "Where",
-                   new[] { source.ElementType },
-                   source.Expression, Expression.Quote(lambda)));
+            if(condition.HasValidFilter())
+            {
+                var lambda = condition.ToExpression(source.ElementType);
+                return source.Provider.CreateQuery(
+                   Expression.Call(
+                       typeof(Queryable), "Where",
+                       new[] { source.ElementType },
+                       source.Expression, Expression.Quote(lambda)));
+            }
+            return source;
         }
 
         public static IQueryable<T> Filter<T>(this IQueryable<T> source, FilterCondition condition)

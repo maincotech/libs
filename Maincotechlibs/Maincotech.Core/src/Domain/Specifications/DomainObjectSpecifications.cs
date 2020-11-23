@@ -16,7 +16,7 @@ namespace Maincotech.Domain.Specifications
             return Specification<TDomainObject>.Eval(entity => entity.LastModifiedTime > lastModifiedTime);
         }
 
-        public static ISpecification<TDomainObject> IdIn<TDomainObject>(List<Guid> ids) where TDomainObject : IEntity
+        public static ISpecification<TDomainObject> IdIn<TDomainObject>(IList<Guid> ids) where TDomainObject : IEntity
         {
             var firstId = ids[0];
             ISpecification<TDomainObject> specification =
@@ -25,6 +25,19 @@ namespace Maincotech.Domain.Specifications
             {
                 var currentId = ids[i];
                 specification = specification.Or(Specification<TDomainObject>.Eval(entity => entity.Id == currentId));
+            }
+            return specification;
+        }
+
+        public static ISpecification<TDomainObject> IdNotIn<TDomainObject>(List<Guid> ids) where TDomainObject : IEntity
+        {
+            var firstId = ids[0];
+            ISpecification<TDomainObject> specification =
+                Specification<TDomainObject>.Eval(entity => entity.Id != firstId);
+            for (var i = 1; i < ids.Count; i++)
+            {
+                var currentId = ids[i];
+                specification = specification.And(Specification<TDomainObject>.Eval(entity => entity.Id != currentId));
             }
             return specification;
         }

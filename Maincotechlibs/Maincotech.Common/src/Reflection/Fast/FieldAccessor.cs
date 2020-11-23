@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace MaincoTech.Reflection.Fast
+namespace Maincotech.Reflection.Fast
 {
     public interface IFieldAccessor
     {

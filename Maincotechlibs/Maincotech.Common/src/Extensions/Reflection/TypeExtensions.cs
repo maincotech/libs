@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace System.Reflection
 {
@@ -350,5 +351,11 @@ namespace System.Reflection
         }
 
         #endregion GetType
+
+        public static IEnumerable<PropertyInfo> GetPropertiesWithAttribute<T>(this Type type) where T : Attribute
+        {
+            var properties = type.GetProperties().Where(prop => prop.IsDefined(typeof(T), false));
+            return properties;
+        }
     }
 }

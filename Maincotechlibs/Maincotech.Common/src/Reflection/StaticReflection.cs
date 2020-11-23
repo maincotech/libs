@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace MaincoTech.Reflection
+namespace Maincotech.Reflection
 {
     /// <summary>
     ///

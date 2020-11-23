@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Maincotech.Data
 {
@@ -9,6 +10,13 @@ namespace Maincotech.Data
     [Serializable]
     public class FilterRule
     {
+        public FilterRule(string field, FilterOperator filterOperator, LogicalOperator logicalOperator, params object[] objs)
+        {
+            Field = field;
+            FilterOperator = filterOperator;
+            PropertyValues = objs.ToList();
+        }
+
         /// <summary>
         /// 过滤规则
         /// </summary>

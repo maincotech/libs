@@ -1,4 +1,4 @@
-﻿namespace MaincoTech.Reflection.Fast
+﻿namespace Maincotech.Reflection.Fast
 {
     /// <summary>
     ///

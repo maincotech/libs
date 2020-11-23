@@ -434,6 +434,19 @@ namespace Maincotech.Domain.Repositories
             return DoGetPagedResult(pagingQuery, eagerLoadingProperties);
         }
 
+        public void AddOrUpdate(TAggregateRoot aggregateRoot)
+        {
+            var exists = Exists(DomainObjectSpecifications.Id<TAggregateRoot>(aggregateRoot.Id));
+            if (exists)
+            {
+                Update(aggregateRoot);
+            }
+            else
+            {
+                Add(aggregateRoot);
+            }
+        }
+
         #endregion IRepository<TAggregateRoot> Members
     }
 }

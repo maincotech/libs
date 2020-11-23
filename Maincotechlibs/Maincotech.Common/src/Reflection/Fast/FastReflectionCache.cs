@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MaincoTech.Reflection.Fast
+namespace Maincotech.Reflection.Fast
 {
     public abstract class FastReflectionCache<TKey, TValue> : IFastReflectionCache<TKey, TValue>
     {

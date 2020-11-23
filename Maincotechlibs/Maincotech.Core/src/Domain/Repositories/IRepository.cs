@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Maincotech.Domain.Repositories
 {
@@ -184,13 +185,15 @@ namespace Maincotech.Domain.Repositories
         /// <param name="aggregateRoot">需要更新的聚合根。</param>
         void Update(TAggregateRoot aggregateRoot);
 
+        void AddOrUpdate(TAggregateRoot aggregateRoot);
+
         #endregion Methods
 
-        IQueryable<TAggregateRoot> GetAll(SortGroup sortGroup = null, FilterCondition filterCondition = null, Expression<Func<TAggregateRoot, dynamic>>[] eagerLoadingProperties = null);
+        IQueryable<TAggregateRoot> GetAll(SortGroup sortGroup = null, FilterCondition filterCondition = null, params Expression<Func<TAggregateRoot, dynamic>>[] eagerLoadingProperties);
 
         bool Exists(FilterCondition filterCondition);
 
-        PagedResult<TAggregateRoot> GetPagedResult(PagingQuery pagingQuery, Expression<Func<TAggregateRoot, dynamic>>[] eagerLoadingProperties = null);
+        PagedResult<TAggregateRoot> GetPagedResult(PagingQuery pagingQuery, params Expression<Func<TAggregateRoot, dynamic>>[] eagerLoadingProperties);
 
 
         //#region Auditing
