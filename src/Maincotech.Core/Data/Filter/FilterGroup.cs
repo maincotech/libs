@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Maincotech.Data
 {
@@ -15,11 +16,6 @@ namespace Maincotech.Data
         public string Name { get; set; }
 
         /// <summary>
-        /// 规则
-        /// </summary>
-        public IList<FilterRule> Rules { get; set; }
-
-        /// <summary>
         /// 逻辑连词 AND OR
         /// </summary>
         public string Conjunction { get; set; }
@@ -30,5 +26,15 @@ namespace Maincotech.Data
         public IList<FilterGroup> Groups { get; set; }
 
         public LogicalOperator LogicalOperator { get; set; }
+
+        public bool HasValidFilter()
+        {
+            if(Count == 0 && Groups == null)
+            {
+                return false;
+            }
+
+            return Count > 0 || Groups?.Any(x => x.HasValidFilter()) == true;
+        }
     }
 }

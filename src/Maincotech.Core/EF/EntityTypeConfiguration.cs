@@ -8,7 +8,7 @@ namespace Maincotech.EF
     /// Represents base entity mapping configuration
     /// </summary>
     /// <typeparam name="TEntity">Entity type</typeparam>
-    public class EntityTypeConfiguration<TEntity> : IMappingConfiguration, IEntityTypeConfiguration<TEntity> where TEntity : EntityBase
+    public class EntityTypeConfiguration<TEntity> : IMappingConfiguration, IEntityTypeConfiguration<TEntity> where TEntity : class, IEntity
     {
         #region Utilities
 

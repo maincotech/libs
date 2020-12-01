@@ -1,12 +1,18 @@
 ﻿using Maincotech.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Maincotech.Data
 {
     public class FilterCondition : List<FilterGroup>
     {
+        public bool HasValidFilter()
+        {
+            return Count > 0 && this.Any(x => x.HasValidFilter());
+        }
+
         public Expression ToExpression(Type type)
         {
             var left = Expression.Parameter(type, "e");

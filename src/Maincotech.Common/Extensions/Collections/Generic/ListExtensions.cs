@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MaincoTech.Extensions.Collections.Generic
+namespace Maincotech.Extensions.Collections.Generic
 {
     public static class ListExtensions
     {

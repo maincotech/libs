@@ -1,6 +1,6 @@
 ﻿namespace System.Reflection
 {
-    using MaincoTech.Reflection.Fast;
+    using Maincotech.Reflection.Fast;
 
     public static class FastReflectionExtensions
     {

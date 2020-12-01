@@ -46,8 +46,8 @@ namespace Maincotech.Domain
                 Id = Guid.NewGuid(),
                 CreationTime = DateTime.UtcNow,
                 LastModifiedTime = DateTime.UtcNow,
-                CreatedBy = Thread.CurrentPrincipal?.Identity?.Name,
-                ModifiedBy = Thread.CurrentPrincipal?.Identity?.Name
+                CreatedBy = AppRuntimeContext.Current.Principal?.Identity?.Name,
+                ModifiedBy = AppRuntimeContext.Current.Principal?.Identity?.Name
             };
             return domainObject;
         }
@@ -58,7 +58,7 @@ namespace Maincotech.Domain
             {
                 Id = id,
                 LastModifiedTime = DateTime.UtcNow,
-                ModifiedBy = Thread.CurrentPrincipal?.Identity?.Name
+                ModifiedBy = AppRuntimeContext.Current.Principal?.Identity?.Name
             };
             return domainObject;
         }

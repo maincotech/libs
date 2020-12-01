@@ -120,7 +120,7 @@ namespace Maincotech.EF
         /// <returns>The instance of the aggregate root.</returns>
         protected override TAggregateRoot DoFind(ISpecification<TAggregateRoot> specification)
         {
-            return EFContext.Context.Set<TAggregateRoot>().Where(specification.IsSatisfiedBy).FirstOrDefault();
+            return Enumerable.Where(EFContext.Context.Set<TAggregateRoot>(),specification.IsSatisfiedBy).FirstOrDefault();
         }
 
         /// <summary>
@@ -178,7 +178,7 @@ namespace Maincotech.EF
                     default:
                         break;
                 }
-            }
+            }            
             return query.ToList();
         }
 
@@ -414,7 +414,7 @@ namespace Maincotech.EF
         protected override PagedResult<TAggregateRoot> DoGetPagedResult(PagingQuery pagingQuery,
             Expression<Func<TAggregateRoot, dynamic>>[] eagerLoadingProperties = null)
         {
-            ParameterChecker.ArgumentNotNull(pagingQuery.SortGroup, "sortGroup");
+            //ParameterChecker.ArgumentNotNull(pagingQuery.SortGroup, "sortGroup");
             IQueryable<TAggregateRoot> query = EFContext.Context.Set<TAggregateRoot>();
             if (eagerLoadingProperties != null)
             {

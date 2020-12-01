@@ -103,7 +103,24 @@ namespace Maincotech.EF
         /// <param name="obj">The object to be registered.</param>
         public override void RegisterModified<TAggregateRoot>(TAggregateRoot obj)
         {
-            Context.Entry(obj).State = EntityState.Modified;
+            var originalEntity = Context.Find(obj.GetType(), obj.Id);
+
+            if (Context.Entry(originalEntity).State == EntityState.Modified)
+            {
+                Context.Update(obj);
+            }
+
+            Context.Entry(originalEntity).CurrentValues.SetValues(obj);
+
+            //if(Context.Entry(obj).State == EntityState.Detached)
+            //{
+            //    Context.Entry(obj).State = EntityState.Modified;
+            //}
+            //else
+            //{
+            //    Context.Entry(obj).CurrentValues.SetValues(obj);
+
+            //}
             Committed = false;
         }
 
