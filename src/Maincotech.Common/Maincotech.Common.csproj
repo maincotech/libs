@@ -8,7 +8,7 @@
     <Description>Common libs</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/maincotech/libs</PackageProjectUrl>
-    <Version>1.0.1</Version>
+    <Version>1.0.7</Version>
     <RootNamespace>Maincotech</RootNamespace>
   </PropertyGroup>
 
