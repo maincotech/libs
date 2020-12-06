@@ -418,7 +418,7 @@ namespace Maincotech.EF
             IQueryable<TAggregateRoot> query = EFContext.Context.Set<TAggregateRoot>();
             if (eagerLoadingProperties != null)
             {
-                for (var i = 1; i < eagerLoadingProperties.Length; i++)
+                for (var i = 0; i < eagerLoadingProperties.Length; i++)
                 {
                     var eagerLoadingProperty = eagerLoadingProperties[i];
                     var eagerLoadingPath = GetEagerLoadingPath(eagerLoadingProperty);
