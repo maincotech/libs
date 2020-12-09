@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
+using System;
 
 namespace Maincotech.Localization
 {
@@ -52,6 +53,10 @@ namespace Maincotech.Localization
             {
                 var key = TermsHelper.GenerateTermsKey(entity, property);
                 var defaultValue = (string)property.FastGetValue(entity);
+                if(defaultValue.IsNullOrEmpty())
+                {
+                    continue;
+                }
                 var cachedValue = _cacheManager.Get<string>(key, () =>
                  {
                      var terms = _termsRepository.Find(TermsSpecifications.WithKeyAndCulture(key, cultureCode));
