@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1;net50</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net50</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Minghao Li</Authors>
     <Company>Maincotech</Company>
