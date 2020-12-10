@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Maincotech.Resources {
+namespace Maincotech.Core.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Maincotech.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Maincotech.Resources.ResourceCore", typeof(ResourceCore).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Maincotech.Core.Resources.ResourceCore", typeof(ResourceCore).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -1,4 +1,5 @@
 ﻿using Maincotech.Caching;
+using Maincotech.Core.Resources;
 using Maincotech.Localization;
 using Maincotech.Resources;
 using Microsoft.EntityFrameworkCore;
