@@ -23,7 +23,17 @@ namespace Maincotech
 
         static AppRuntimeContext()
         {
-            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+
+            string path;
+            try
+            {
+                path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+            }
+            catch (NotSupportedException)
+            {
+                path = Directory.GetCurrentDirectory();
+            }
+
             if (OSUtil.IsMacOS())
             {
                 _executingPath = path.Replace("file:",string.Empty);
