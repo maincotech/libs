@@ -105,22 +105,21 @@ namespace Maincotech.EF
         {
             var originalEntity = Context.Find(obj.GetType(), obj.Id);
 
-            if (Context.Entry(originalEntity).State == EntityState.Modified)
+            //if (Context.Entry(originalEntity).State == EntityState.Modified)
+            //{
+            //    Context.Update(obj);
+            //}
+
+            //Context.Entry(originalEntity).CurrentValues.SetValues(obj);
+
+            if (Context.Entry(originalEntity).State == EntityState.Detached)
             {
-                Context.Update(obj);
+                Context.Entry(originalEntity).State = EntityState.Modified;
             }
-
-            Context.Entry(originalEntity).CurrentValues.SetValues(obj);
-
-            //if(Context.Entry(obj).State == EntityState.Detached)
-            //{
-            //    Context.Entry(obj).State = EntityState.Modified;
-            //}
-            //else
-            //{
-            //    Context.Entry(obj).CurrentValues.SetValues(obj);
-
-            //}
+            else
+            {
+                Context.Entry(originalEntity).CurrentValues.SetValues(obj);
+            }
             Committed = false;
         }
 

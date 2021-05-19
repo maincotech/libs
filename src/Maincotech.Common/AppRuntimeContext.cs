@@ -33,12 +33,12 @@ namespace Maincotech
             {
                 path = Directory.GetCurrentDirectory();
             }
-
+            _executingPath = path;
             if (OSUtil.IsMacOS())
             {
                 _executingPath = path.Replace("file:",string.Empty);
             }
-            else
+            if(OSUtil.IsWindows())
             {
                 _executingPath = new Uri(path).LocalPath;
             }
