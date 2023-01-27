@@ -7,8 +7,8 @@
 	  <Authors>Minghao Li</Authors>
 	  <Company>Maincotech</Company>
 	  <Product>Maincotech Libs</Product>
-	  <FileVersion>6.0.$([System.DateTime]::UtcNow.Date.Subtract($([System.DateTime]::Parse("2023-01-01"))).TotalDays).$([System.Math]::Floor($([MSBuild]::Divide($([System.DateTime]::UtcNow.TimeOfDay.TotalSeconds), 1.32))))</FileVersion>
-    <Version>6.0.$([System.DateTime]::UtcNow.Date.Subtract($([System.DateTime]::Parse("2023-01-01"))).TotalDays)</Version>
+	  <FileVersion>6.0.$([System.DateTime]::UtcNow.Date.Subtract($([System.DateTime]::Parse("2023-01-01"))).TotalHours).$([System.Math]::Floor($([MSBuild]::Divide($([System.DateTime]::UtcNow.TimeOfDay.TotalSeconds), 1.32))))</FileVersion>
+    <Version>6.0.$([System.DateTime]::UtcNow.Date.Subtract($([System.DateTime]::Parse("2023-01-01"))).TotalHours)</Version>
     <PackageReadmeFile>Maincotech.Common.README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/maincotech/libs/tree/net60</PackageProjectUrl>
