@@ -21,14 +21,14 @@ jobs:
     - name: Package NuGet Maincotech.Common
       run: dotnet pack -c Release -o . src/Maincotech.Common/Maincotech.Common.csproj 
     - name: Publish NuGet Maincotech.Common
-      run: dotnet nuget push Maincotech.Common*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push Maincotech.Common*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
     
     - name: Package NuGet Maincotech.Core
       run: dotnet pack -c Release -o . src/Maincotech.Core/Maincotech.Core.csproj 
     - name: Publish NuGet Maincotech.Core
-      run: dotnet nuget push Maincotech.Core*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json    
+      run: dotnet nuget push Maincotech.Core*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json  --skip-duplicate   
 
     - name: Package NuGet Maincotech.Messaging
       run: dotnet pack -c Release -o . src/Maincotech.Messaging/Maincotech.Messaging.csproj 
     - name: Publish NuGet Maincotech.Messaging
-      run: dotnet nuget push Maincotech.Messaging*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push Maincotech.Messaging*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
