@@ -41,6 +41,7 @@ namespace Maincotech.Utilities
         /// <param name="data">The Base64 encoded data to deserialize.</param>
         /// <typeparam name="TData">The type of data to process.</typeparam>
         /// <returns>The deserialized object.</returns>
+        [Obsolete("As BinaryFormatter serialization is obsolete and should not be used. See https://aka.ms/binaryformatter for more information.", DiagnosticId = "SYSLIB0011", UrlFormat = "https://aka.ms/dotnet-warnings/{0}")]
         public static object DeserializeFromBase64String(string data)
         {
             using (var ms = new MemoryStream())
@@ -53,6 +54,7 @@ namespace Maincotech.Utilities
             }
         }
 
+        [Obsolete("As BinaryFormatter serialization is obsolete and should not be used. See https://aka.ms/binaryformatter for more information.", DiagnosticId = "SYSLIB0011", UrlFormat = "https://aka.ms/dotnet-warnings/{0}")]
         public static object DeserializeFromXORBase64String(string data)
         {
             using (var ms = new MemoryStream())

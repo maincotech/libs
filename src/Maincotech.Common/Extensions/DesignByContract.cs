@@ -129,12 +129,12 @@ namespace System
 
         public interface ICheckStrategy
         {
-            bool Pass(object obj);
+            bool Pass(object? obj);
 
             string GetFailingMessage(string objName);
         }
 
-        private static void CheckByStrategies(object obj, string objName, ICheckStrategy[] strategies, ref bool assertion, ref string message)
+        private static void CheckByStrategies(object? obj, string objName, ICheckStrategy[] strategies, ref bool assertion, ref string message)
         {
             if (strategies == null || strategies.Length == 0)
             {
@@ -216,9 +216,9 @@ namespace System
                 if (obj is string)
                     return !string.IsNullOrEmpty(obj as string);
                 if (obj is Array)
-                    return (obj as Array).Length > 0;
+                    return ((Array)obj).Length > 0;
                 if (obj is ICollection)
-                    return (obj as ICollection).Count > 0;
+                    return ((ICollection)obj).Count > 0;
 
                 return true;
             }
@@ -719,10 +719,10 @@ namespace System
         /// Assertion check.
         /// </summary>
         [Conditional(DbcCheckAll)]
-        public static void Assert(object obj, string objName, params ICheckStrategy[] strategies)
+        public static void Assert(object? obj, string objName, params ICheckStrategy[] strategies)
         {
             var assertion = true;
-            string message = null;
+            string? message = null;
 
             CheckByStrategies(obj, objName, strategies, ref assertion, ref message);
 
@@ -743,13 +743,13 @@ namespace System
         #endregion Assertion
 
         [Conditional(DbcCheckAll)]
-        public static void AssertNotNull(object obj, string objName)
+        public static void AssertNotNull(object? obj, string objName)
         {
             Assert(obj, objName, NotNull);
         }
 
         [Conditional(DbcCheckAll)]
-        public static void AssertNotNullOrEmpty(object obj, string objName)
+        public static void AssertNotNullOrEmpty(object? obj, string objName)
         {
             Assert(obj, objName, NotNullOrEmpty);
         }

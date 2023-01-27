@@ -27,7 +27,7 @@ namespace Maincotech
             string path;
             try
             {
-                path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+                path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             }
             catch (NotSupportedException)
             {

@@ -277,14 +277,14 @@ namespace System.Reflection
         /// </summary>
         /// <param name="fullName">The full name.</param>
         /// <returns></returns>
-        public static Type GetType(string fullName)
+        public static Type? GetType(string fullName)
         {
             if (string.IsNullOrEmpty(fullName))
             {
                 return null;
             }
 
-            Type t = null;
+            Type? t = null;
 
             if (fullName.StartsWith("System.Nullable`1["))
             {
